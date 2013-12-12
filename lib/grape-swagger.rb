@@ -108,7 +108,7 @@ module Grape
               output[:basePath]       = basePath        if basePath && basePath.size > 0 && root_base_path != false
               output[:authorizations] = authorizations  if authorizations
 
-              output
+              output.to_json
             end
 
             desc 'Swagger compatible API description for specific API', :params => {
@@ -160,7 +160,7 @@ module Grape
               api_description[:basePath] = basePath if basePath && basePath.size > 0
               api_description[:models]   = parse_entity_models(models) unless models.empty?
               
-              api_description
+              api_description.to_json
             end
           end
 
